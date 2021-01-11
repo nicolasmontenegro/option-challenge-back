@@ -21,7 +21,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors());
+
+
+var corsOptions = {
+  origin: process.env.CORS_SITES,
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+app.use(cors(corsOptions));
 
 var indexRouter = require('./routes/index');
 var ytApiRouter = require('./routes/yt_api');

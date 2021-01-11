@@ -15,3 +15,4 @@ services:
     command: yarn run dev
     environment: 
       - YOUTUBE_KEY
+      - CORS_SITES
