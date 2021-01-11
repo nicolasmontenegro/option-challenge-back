@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon --inspect ./bin/www",
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -18,5 +20,10 @@
     "jsonschema": "^1.4.0",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.7"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "jest": "^26.6.3",
+    "supertest": "^6.0.1"
   }
 }
