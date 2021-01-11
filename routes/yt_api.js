@@ -21,9 +21,10 @@ var schema = {
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  const validation =vvalidator.validate(req.query, schema)
+    res.setHeader('Content-Type', 'application/json');
+  const validation = validator.validate(req.query, schema)
   if (validation.errors.length) {
-    next(validation.errors[0]) // Pass errors to Express.
+    res.status(500).json({ errors: validation.errors });
   } else {
     req.app.locals.youtube.search.list({    
       part: 'snippet',
